@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Counter from './components/Counter'
 import Handlers from './components/Handlers'
 import Login from './components/Login'
 import Menu from './components/Menu'
@@ -8,7 +9,7 @@ function App() {
 
   return (
     <div>
-      <Login />
+      <Counter />
     </div>
   )
 }

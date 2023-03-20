@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 import useInput from '../hooks/useInput'
 
 function Login() {  
@@ -14,6 +14,7 @@ function Login() {
     //     console.log(e.target.value)
     //     setUserPassward(e.target.value)
     // }
+    const userId = useRef('')
     const { userInfo, onUserInfoChange } = useInput({ id: '', pw: '' })
 
     const onKeyDown = (e) => {
@@ -24,7 +25,8 @@ function Login() {
 
 
     const login = () => {
-        console.log(userInfo);
+        console.log(userInfo)
+        console.log(userId.current.value)
         alert(userInfo.id)
         alert(userInfo.pw)
         alert('로그인')
@@ -32,7 +34,7 @@ function Login() {
 
   return (
     <div onChange={onUserInfoChange}>
-        <input name="id" type="text" placeholder='아이디'/>
+        <input name="id" type="text" placeholder='아이디' ref={userId} />
         <input name="pw" type="password" placeholder='비밀번호' onKeyDown={onKeyDown} />
         <button onClick={login}>로그인</button>
     </div>
